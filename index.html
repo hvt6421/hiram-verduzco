@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hiram Verduzco | Landing Pages</title>
+  <meta name="description" content="Hiram Verduzco — Diseño y desarrollo de landing pages a medida, rápidas y enfocadas en convertir." />
+  <meta property="og:title" content="Hiram Verduzco | Landing Pages" />
+  <meta property="og:description" content="Diseño y desarrollo de landing pages a medida, rápidas y enfocadas en convertir." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' font-weight='600' fill='%23ff5a36' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            ink: {
+              950: '#0a0a0a',
+              900: '#111111',
+              800: '#1a1a1a',
+              700: '#262626',
+              600: '#3a3a3a',
+            },
+            flame: {
+              300: '#ffb199',
+              400: '#ff8a66',
+              500: '#ff5a36',
+              600: '#e0431f',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+
+    .noise-bg {
+      background-image: radial-gradient(circle at 20% 20%, rgba(255,90,54,0.08) 0%, transparent 45%),
+                         radial-gradient(circle at 80% 70%, rgba(255,90,54,0.05) 0%, transparent 45%);
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(10,10,10,0.55);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .project-card:hover .overlay { opacity: 1; }
+    .project-card .placeholder {
+      transition: transform 0.6s ease;
+    }
+    .project-card:hover .placeholder { transform: scale(1.05); }
+
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1px;
+      background: #ff5a36;
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after { width: 100%; }
+  </style>
+</head>
+<body class="bg-ink-950 text-white/90 font-sans antialiased">
+
+  <!-- Nav -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-ink-950/80 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <a href="#top" class="font-display text-lg tracking-wide">Hiram <span class="text-flame-500">Verduzco</span></a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-white/70">
+        <a href="#sobre-mi" class="nav-link hover:text-white transition-colors">Sobre mí</a>
+        <a href="#portafolio" class="nav-link hover:text-white transition-colors">Portafolio</a>
+        <a href="#servicios" class="nav-link hover:text-white transition-colors">Servicios</a>
+        <a href="#contacto" class="nav-link hover:text-white transition-colors">Contacto</a>
+      </nav>
+      <a href="#contacto" class="hidden sm:inline-block text-sm bg-flame-500 hover:bg-flame-600 transition-colors text-white px-4 py-2 rounded-full">
+        Trabajemos juntos
+      </a>
+      <button id="menu-btn" class="md:hidden text-white/80 p-2 -mr-2" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="menu-icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+        </svg>
+        <svg id="menu-icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-ink-950/95 px-6 py-6 flex flex-col gap-5 text-white/70">
+      <a href="#sobre-mi" class="hover:text-white transition-colors">Sobre mí</a>
+      <a href="#portafolio" class="hover:text-white transition-colors">Portafolio</a>
+      <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
+      <a href="#contacto" class="hover:text-white transition-colors">Contacto</a>
+      <a href="#contacto" class="bg-flame-500 hover:bg-flame-600 transition-colors text-white text-center px-4 py-2.5 rounded-full">
+        Trabajemos juntos
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="top" class="noise-bg relative min-h-screen flex items-center pt-24 pb-16">
+    <div class="max-w-6xl mx-auto px-6 w-full">
+      <p class="text-flame-500 font-display text-sm tracking-[0.3em] uppercase mb-6">Landing Pages</p>
+      <h1 class="font-display text-5xl sm:text-6xl md:text-7xl leading-[1.05] font-medium max-w-4xl">
+        Landing pages que convierten,<br />
+        <span class="text-white/40">no solo decoran.</span>
+      </h1>
+      <p class="mt-8 text-lg text-white/60 max-w-xl leading-relaxed">
+        Soy Hiram Verduzco. Diseño y desarrollo landing pages a medida
+        para negocios que necesitan una presencia clara y efectiva en internet.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="#portafolio" class="bg-flame-500 hover:bg-flame-600 transition-colors text-white px-7 py-3.5 rounded-full font-medium">
+          Ver portafolio
+        </a>
+        <a href="#contacto" class="border border-white/20 hover:border-white/40 transition-colors px-7 py-3.5 rounded-full font-medium">
+          Contáctame
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section id="sobre-mi" class="py-24 md:py-32 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-medium mb-2">Sobre mí</h2>
+      <p class="text-white/40 text-sm mb-8">Estudiante de Ingeniería en Innovación y Desarrollo</p>
+      <p class="text-white/60 leading-relaxed mb-4 max-w-2xl">
+        Me especializo en landing pages: sitios de una sola página, rápidos
+        y enfocados en convertir visitantes en clientes.
+      </p>
+      <p class="text-white/60 leading-relaxed mb-12 max-w-2xl">
+        Cuido cada detalle: estructura, textos, velocidad de carga y que
+        se vea bien en cualquier dispositivo.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-4 gap-x-6 text-sm text-white/50 max-w-4xl">
+        <span>Diseño a medida</span>
+        <span>Textos que venden</span>
+        <span>Se ve bien en cualquier pantalla</span>
+        <span>Encontrable en Google</span>
+        <span>Pensado para convertir</span>
+        <span>Entrega rápida</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portafolio -->
+  <section id="portafolio" class="py-24 md:py-32 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="flex items-end justify-between mb-14">
+        <h2 class="font-display text-3xl md:text-4xl font-medium">Portafolio</h2>
+        <p class="text-white/40 text-sm hidden sm:block">Selección de proyectos recientes</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Imagen fija del diseño real (más ligero que un iframe en vivo). El link abre el sitio completo. -->
+        <a href="https://unno-yoga.vercel.app" target="_blank" rel="noopener" class="project-card aspect-square rounded-2xl overflow-hidden border border-white/10 block bg-ink-950">
+          <img src="images/shot-unno-yoga.jpg" alt="Ūnno Yoga" class="placeholder absolute inset-0 w-full h-full object-cover object-top" />
+          <div class="overlay flex flex-col justify-end p-6">
+            <h3 class="font-display text-lg">Ūnno Yoga</h3>
+            <p class="text-white/60 text-sm">Estudio de yoga</p>
+          </div>
+        </a>
+        <a href="https://montessori-serradell.vercel.app" target="_blank" rel="noopener" class="project-card aspect-square rounded-2xl overflow-hidden border border-white/10 block bg-white">
+          <img src="images/shot-montessori-serradell.jpg" alt="Montessori Serradell" class="placeholder absolute inset-0 w-full h-full object-cover object-top" />
+          <div class="overlay flex flex-col justify-end p-6">
+            <h3 class="font-display text-lg">Montessori Serradell</h3>
+            <p class="text-white/60 text-sm">Educación</p>
+          </div>
+        </a>
+        <a href="https://barberos-elite.vercel.app" target="_blank" rel="noopener" class="project-card aspect-square rounded-2xl overflow-hidden border border-white/10 block bg-ink-950">
+          <img src="images/shot-barberos-elite.jpg" alt="Barberos Elite" class="placeholder absolute inset-0 w-full h-full object-cover object-top" />
+          <div class="overlay flex flex-col justify-end p-6">
+            <h3 class="font-display text-lg">Barberos Elite</h3>
+            <p class="text-white/60 text-sm">Barbería</p>
+          </div>
+        </a>
+        <a href="https://ebook-abogado.vercel.app" target="_blank" rel="noopener" class="project-card aspect-square rounded-2xl overflow-hidden border border-white/10 block bg-ink-950">
+          <img src="images/shot-ebook-abogado.jpg" alt="El Abogado Aumentado" class="placeholder absolute inset-0 w-full h-full object-cover object-top" />
+          <div class="overlay flex flex-col justify-end p-6">
+            <h3 class="font-display text-lg">El Abogado Aumentado</h3>
+            <p class="text-white/60 text-sm">Landing de venta (ebook)</p>
+          </div>
+        </a>
+        <!-- Para agregar un proyecto nuevo: duplica una tarjeta de arriba (imagen + link o carpeta en proyectos/) -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section id="servicios" class="py-24 md:py-32 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="font-display text-3xl md:text-4xl font-medium mb-4">Servicios</h2>
+      <p class="text-white/40 text-sm mb-14 max-w-md">Todo lo que necesita tu landing page, de principio a fin.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden">
+        <div class="bg-ink-950 p-8">
+          <p class="text-flame-500 font-display text-sm mb-4">01</p>
+          <h3 class="font-display text-lg mb-2">Diseño</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Estructura y diseño visual pensados para tu negocio.</p>
+        </div>
+        <div class="bg-ink-950 p-8">
+          <p class="text-flame-500 font-display text-sm mb-4">02</p>
+          <h3 class="font-display text-lg mb-2">Desarrollo</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Sitio funcional, rápido y responsive, listo para publicar.</p>
+        </div>
+        <div class="bg-ink-950 p-8">
+          <p class="text-flame-500 font-display text-sm mb-4">03</p>
+          <h3 class="font-display text-lg mb-2">Textos &amp; Contenido</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Copy claro y organizado para comunicar tu servicio.</p>
+        </div>
+        <div class="bg-ink-950 p-8">
+          <p class="text-flame-500 font-display text-sm mb-4">04</p>
+          <h3 class="font-display text-lg mb-2">Ajustes &amp; Soporte</h3>
+          <p class="text-white/50 text-sm leading-relaxed">Cambios y acompañamiento después de la entrega.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto" class="py-24 md:py-32 border-t border-white/5">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="text-flame-500 font-display text-sm tracking-[0.3em] uppercase mb-6">Contacto</p>
+      <h2 class="font-display text-3xl md:text-5xl font-medium max-w-2xl mx-auto mb-10">
+        ¿Tienes un proyecto en mente? Hablemos.
+      </h2>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="mailto:hiramverduzco12@gmail.com" class="bg-flame-500 hover:bg-flame-600 transition-colors text-white px-7 py-3.5 rounded-full font-medium">
+          hiramverduzco12@gmail.com
+        </a>
+        <a href="https://wa.me/526471194422?text=Hola%20Hiram%2C%20quiero%20platicar%20sobre%20una%20landing%20page" target="_blank" rel="noopener" class="border border-white/20 hover:border-white/40 transition-colors px-7 py-3.5 rounded-full font-medium">
+          WhatsApp: 647 119 4422
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/5 py-10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/40">
+      <span>© <span id="year"></span> Hiram Verduzco</span>
+      <span>Landing Pages</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+
+    function setMenu(open) {
+      mobileMenu.classList.toggle('hidden', !open);
+      iconOpen.classList.toggle('hidden', open);
+      iconClose.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', open);
+    }
+
+    menuBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+  </script>
+</body>
+</html>
